@@ -239,6 +239,28 @@
   .preco-parcela{ font-size: 16px; color: var(--texto-suave); display: block; }
   .preco-nota{ font-size: 14px; color: var(--texto-suave); display: block; margin-top: 2px; }
 
+  /* ===== Formas de pagamento ===== */
+  .formas-pagamento{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .forma-pagamento{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--pilula-bg);
+    border: 1px solid rgba(140, 63, 34, 0.3);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--texto);
+    white-space: nowrap;
+  }
+  .compra-final .formas-pagamento{ justify-content: center; }
+
   /* ===== Dobra 2 — VSL ===== */
   .vsl{
     background: var(--branco);
@@ -654,8 +676,15 @@
         <div class="bloco-preco">
           <span class="preco-riscado">De R$ 65,90</span>
           <span class="preco-atual">R$ 35,90</span>
-          <span class="preco-parcela">ou 12x de R$ 3,29</span>
+          <span class="preco-parcela">ou 12x de R$ 3,29 &bull; ou 8x de R$ 5,22</span>
           <span class="preco-nota">Pagamento único. Sem mensalidade.</span>
+        </div>
+
+        <div class="formas-pagamento">
+          <span class="forma-pagamento">💳 Cartão</span>
+          <span class="forma-pagamento">🧾 Boleto</span>
+          <span class="forma-pagamento">⚡ Pix</span>
+          <span class="forma-pagamento">💳+⚡ Cartão + Pix</span>
         </div>
 
         <a href="#comprar" class="btn-cta btn-cta--primario">QUERO ALIVIAR ISSO AGORA →</a>
@@ -880,8 +909,17 @@
         <div class="bloco-preco">
           <span class="preco-riscado">R$ 65,90</span>
           <span class="preco-atual">R$ 35,90</span>
-          <span class="preco-parcela">ou 12x de R$ 3,29</span>
+          <span class="preco-parcela">ou 12x de R$ 3,29 &bull; ou 8x de R$ 5,22</span>
         </div>
+
+        <div class="formas-pagamento">
+          <span class="forma-pagamento">💳 Cartão</span>
+          <span class="forma-pagamento">🧾 Boleto</span>
+          <span class="forma-pagamento">⚡ Pix</span>
+          <span class="forma-pagamento">💳+⚡ Cartão + Pix</span>
+        </div>
+
+        <br>
 
         <a href="#link-de-compra" class="btn-cta btn-cta--primario btn-cta--bloco">✅ QUERO RECEBER AGORA</a>
 
