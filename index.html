@@ -525,12 +525,7 @@
     display: flex;
     align-items: baseline;
     gap: 8px;
-    white-space: nowrap;
-  }
-  .barra-fixa-cta__riscado{
-    color: #8a8a8a;
-    font-size: 14px;
-    text-decoration: line-through;
+    text-align: center;
   }
   .barra-fixa-cta__atual{
     color: var(--marrom);
@@ -546,6 +541,7 @@
   @media (max-width: 480px){
     .barra-fixa-cta__conteudo{ gap: 10px; }
     .barra-fixa-cta .btn-cta{ width: 100%; }
+    .barra-fixa-cta__atual{ font-size: 17px; }
   }
 
   /* ===== Modal de tempo esgotado ===== */
@@ -956,8 +952,7 @@
   <div class="barra-fixa-cta" id="barra-fixa-cta">
     <div class="barra-fixa-cta__conteudo">
       <div class="barra-fixa-cta__preco">
-        <span class="barra-fixa-cta__riscado">R$ 65,90</span>
-        <span class="barra-fixa-cta__atual">R$ 35,90</span>
+        <span class="barra-fixa-cta__atual">A Farmácia Natural do Interior</span>
       </div>
       <a href="#comprar" class="btn-cta btn-cta--primario">✅ QUERO MEU ACESSO AGORA</a>
     </div>
