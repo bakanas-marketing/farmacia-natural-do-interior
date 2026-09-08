@@ -20,7 +20,7 @@
     --texto-suave: #5C4A30;
     --pilula-bg: #EBE1C6;
     --alerta: #CC2200;
-    --topbar-altura: 48px;
+    --topbar-altura: 68px;
   }
 
   *, *::before, *::after{ box-sizing: border-box; }
@@ -106,20 +106,22 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 999;
-    height: var(--topbar-altura);
+    min-height: var(--topbar-altura);
     background: var(--marrom);
     color: var(--branco);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 0 12px;
-    font-size: 14px;
-    font-weight: 700;
+    gap: 10px;
+    row-gap: 6px;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 900;
     text-align: center;
   }
   .topbar .topbar-icone{
-    font-size: 19px;
+    font-size: 22px;
     display: inline-block;
     animation: pulsar 1s infinite;
   }
@@ -127,12 +129,17 @@
     font-size: 1.2em;
   }
   .topbar .topbar-timer{
-    color: var(--alerta);
+    color: var(--branco);
+    background: var(--alerta);
     font-weight: 900;
-    font-size: 1.1em;
+    font-size: 1.25em;
     font-variant-numeric: tabular-nums;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 6px;
     animation: pulsar 1s infinite;
     white-space: nowrap;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.25);
   }
   @keyframes pulsar{
     0%, 100%{ opacity: 1; }
@@ -156,6 +163,21 @@
     gap: 32px;
     align-items: center;
   }
+  .hero-marca-topo{
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: var(--terracota);
+  }
+  .hero-marca-topo .hero-marca-topo__icone{ font-size: 24px; }
   .hero-imagem img{
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(58, 46, 30, 0.25);
@@ -397,7 +419,7 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .garantia h2{ color: var(--marrom); font-size: 26px; margin-bottom: 14px; }
+  .garantia h2{ color: var(--marrom); font-size: 26px; margin: 10px 0 14px; }
   .garantia p{ font-size: 17px; color: var(--texto); }
 
   .bloco-urgencia{
@@ -477,6 +499,55 @@
   }
   footer a{ color: var(--dourado); text-decoration: underline; }
 
+  /* ===== Barra fixa de CTA (aparece após a dobra do VSL) ===== */
+  .barra-fixa-cta{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 900;
+    background: var(--branco);
+    border-top: 3px solid var(--dourado);
+    box-shadow: 0 -8px 24px rgba(58, 46, 30, 0.18);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    transform: translateY(110%);
+    transition: transform 0.3s ease;
+  }
+  .barra-fixa-cta.visivel{ transform: translateY(0); }
+  .barra-fixa-cta__conteudo{
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .barra-fixa-cta__preco{
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .barra-fixa-cta__riscado{
+    color: #8a8a8a;
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+  .barra-fixa-cta__atual{
+    color: var(--marrom);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 22px;
+  }
+  .barra-fixa-cta .btn-cta{
+    min-height: 46px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  @media (max-width: 480px){
+    .barra-fixa-cta__conteudo{ gap: 10px; }
+    .barra-fixa-cta .btn-cta{ width: 100%; }
+  }
+
   /* ===== Modal de tempo esgotado ===== */
   .modal-overlay{
     display: none;
@@ -528,8 +599,10 @@
   @media (min-width: 768px){
     body{ font-size: 17px; }
 
-    .topbar{ font-size: 15px; }
+    :root{ --topbar-altura: 56px; }
+    .topbar{ font-size: 17px; padding: 10px 16px; }
 
+    .hero-marca-topo{ font-size: 28px; margin-bottom: 28px; }
     .hero .container{ grid-template-columns: 1fr 1fr; }
     .hero-imagem{ order: 2; }
     .hero-imagem img{ max-width: 480px; }
@@ -559,19 +632,18 @@
 
   <!-- ===== Barra de topo fixa ===== -->
   <div class="topbar">
-    <span><span class="topbar-icone">⚠️</span> ÚLTIMOS MINUTOS: De R$ 65,90 por apenas <strong>R$ 35,90</strong></span>
+    <span><span class="topbar-icone">⚡</span> PROMOÇÃO RELÂMPAGO</span>
     <span class="topbar-timer" data-countdown>30:00</span>
   </div>
 
   <!-- ===== Dobra 1 — Hero ===== -->
   <section class="hero" id="hero">
+    <div class="hero-marca-topo"><span class="hero-marca-topo__icone">🌿</span> A Farmácia Natural do Interior</div>
     <div class="container">
       <div class="hero-imagem">
         <img src="3.png" alt="Bruto da Roça segurando o material 150 Receitas Naturais da Roça">
       </div>
       <div class="hero-texto">
-        <span class="kicker">A Farmácia Natural do Interior</span>
-        <hr class="linha-dourada">
         <h1>150 Receitas Naturais da Roça que o Interior Sempre Soube Fazer</h1>
         <p class="subtitulo">Pra aliviar dor, sono ruim, digestão pesada e outros probleminhas do dia a dia, sem sair de casa e sem depender de remédio caro pra tudo.</p>
 
@@ -600,8 +672,8 @@
   <!-- ===== Dobra 2 — VSL ===== -->
   <section class="vsl" id="vsl">
     <div class="container">
-      <span class="kicker">Conheça o material por dentro</span>
-      <h2>Veja como as receitas foram organizadas para facilitar sua rotina</h2>
+      <span class="kicker">A Farmácia Natural do Interior por dentro</span>
+      <h2>Veja como as receitas da Farmácia Natural do Interior foram organizadas para facilitar sua rotina</h2>
       <div class="video-wrapper">
         <div class="video-custom" id="video-custom">
           <video id="vsl-video" poster="1.png" preload="metadata" playsinline disablePictureInPicture>
@@ -633,7 +705,7 @@
         <img src="2.png" alt="Bruto da Roça com o material impresso sobre a mesa">
       </div>
       <div class="sobre-texto">
-        <span class="kicker">O material</span>
+        <span class="kicker">A Farmácia Natural do Interior — o material</span>
         <h2>150 receitas tradicionais do interior, organizadas do jeito que o campo sempre soube fazer</h2>
 
         <ul class="lista-bullets">
@@ -661,9 +733,9 @@
   <section class="categorias" id="categorias">
     <div class="container">
       <div class="cabecalho">
-        <span class="kicker">150 receitas organizadas por finalidade</span>
+        <span class="kicker">A Farmácia Natural do Interior — 150 receitas organizadas por finalidade</span>
         <h2>Encontre o que precisa na hora que precisar</h2>
-        <p class="subtitulo">Sem ficar procurando em vídeo nenhum. Só escolher o capítulo e seguir o preparo.</p>
+        <p class="subtitulo">A seguir, os 15 capítulos que você vai encontrar no e-book completo da Farmácia Natural do Interior. Sem ficar procurando em vídeo nenhum, é só escolher o capítulo e seguir o preparo.</p>
       </div>
 
       <div class="grid-categorias">
@@ -796,6 +868,7 @@
   <section class="comprar" id="comprar">
     <div class="container">
       <div class="garantia">
+        <span class="kicker">A Farmácia Natural do Interior</span>
         <h2>Eu não vi nada disso escrito em livro nenhum, até agora</h2>
         <p>Aprendi vendo minha mãe ferver folha de boldo depois do almoço de domingo, vendo meu pai amassar erva no pano pra fazer compressa no joelho depois de um dia de enxada, vendo o vizinho velho apontar no quintal qual mato servia pra quê. Era tudo passado de boca em boca, de geração em geração, até eu resolver reunir essas 150 receitas aqui, separadas por finalidade, do jeito que a roça sempre fez: direto, sem frescura, com respeito por quem veio antes.</p>
 
@@ -878,6 +951,17 @@
     Este material tem finalidade educativa e informativa. Não substitui diagnóstico ou tratamento médico.<br>
     <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
   </footer>
+
+  <!-- ===== Barra fixa de CTA (após o VSL) ===== -->
+  <div class="barra-fixa-cta" id="barra-fixa-cta">
+    <div class="barra-fixa-cta__conteudo">
+      <div class="barra-fixa-cta__preco">
+        <span class="barra-fixa-cta__riscado">R$ 65,90</span>
+        <span class="barra-fixa-cta__atual">R$ 35,90</span>
+      </div>
+      <a href="#comprar" class="btn-cta btn-cta--primario">✅ QUERO MEU ACESSO AGORA</a>
+    </div>
+  </div>
 
   <!-- ===== Modal de tempo esgotado ===== -->
   <div class="modal-overlay" id="modal-tempo-esgotado">
@@ -981,6 +1065,41 @@
       else if (video.webkitRequestFullscreen) { video.webkitRequestFullscreen(); }
       else if (video.webkitEnterFullscreen) { video.webkitEnterFullscreen(); }
     });
+  })();
+
+  // ===== Barra fixa de CTA: some até passar da dobra do VSL, depois some perto do rodapé =====
+  (function(){
+    var barra = document.getElementById('barra-fixa-cta');
+    var vsl = document.getElementById('vsl');
+    var rodape = document.querySelector('footer');
+    if (!barra || !vsl || !('IntersectionObserver' in window)) return;
+
+    var passouDoVsl = false;
+    var pertoDoRodape = false;
+
+    function atualizarVisibilidade() {
+      if (passouDoVsl && !pertoDoRodape) {
+        barra.classList.add('visivel');
+      } else {
+        barra.classList.remove('visivel');
+      }
+    }
+
+    new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        passouDoVsl = entrada.boundingClientRect.top < 0;
+      });
+      atualizarVisibilidade();
+    }, { threshold: 0 }).observe(vsl);
+
+    if (rodape) {
+      new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          pertoDoRodape = entrada.isIntersecting;
+        });
+        atualizarVisibilidade();
+      }, { threshold: 0 }).observe(rodape);
+    }
   })();
 
   // ===== Accordion do FAQ — só uma resposta aberta por vez =====
