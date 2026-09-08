@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Farmácia Natural do Interior: 150 Receitas Naturais da Roça</title>
+<meta name="description" content="150 receitas naturais organizadas por finalidade: chás, xaropes, compressas e banhos do jeito que o interior sempre soube fazer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== Variáveis de identidade visual ===== */
+  :root{
+    --marrom: #4E2E1B;
+    --terracota: #8C3F22;
+    --dourado: #C08A3E;
+    --creme: #FBF6EA;
+    --branco: #FFFFFF;
+    --texto: #3A2E1E;
+    --texto-suave: #5C4A30;
+    --pilula-bg: #EBE1C6;
+    --alerta: #CC2200;
+    --topbar-altura: 48px;
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 17px; /* fonte mínima 17px no corpo, público 60+ */
+    line-height: 1.6;
+    color: var(--texto);
+    background: var(--creme);
+    padding-top: var(--topbar-altura); /* compensa a barra fixa */
+  }
+
+  h1, h2{ font-family: 'Playfair Display', Georgia, serif; margin: 0; }
+
+  img{ max-width: 100%; display: block; }
+
+  a{ color: inherit; }
+
+  .container{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .kicker{
+    display: inline-block;
+    color: var(--dourado);
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .linha-dourada{
+    width: 64px;
+    height: 3px;
+    background: var(--dourado);
+    border: none;
+    margin: 14px 0 18px;
+  }
+
+  /* ===== Botão CTA padrão ===== */
+  .btn-cta{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    padding: 18px 40px;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(46, 70, 35, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(46, 70, 35, 0.32); }
+  .btn-cta:active{ transform: translateY(0); }
+
+  .btn-cta--primario{ background: var(--marrom); color: var(--branco); }
+  .btn-cta--claro{ background: var(--branco); color: var(--marrom); }
+  .btn-cta--bloco{ width: 100%; }
+
+  .icones-seguranca{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 15px;
+    color: var(--texto-suave);
+  }
+  .icones-seguranca span{ white-space: nowrap; }
+
+  /* ===== Barra de topo fixa ===== */
+  .topbar{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    height: var(--topbar-altura);
+    background: var(--marrom);
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .topbar .topbar-icone{
+    font-size: 19px;
+    display: inline-block;
+    animation: pulsar 1s infinite;
+  }
+  .topbar strong{
+    font-size: 1.2em;
+  }
+  .topbar .topbar-timer{
+    color: var(--alerta);
+    font-weight: 900;
+    font-size: 1.1em;
+    font-variant-numeric: tabular-nums;
+    animation: pulsar 1s infinite;
+    white-space: nowrap;
+  }
+  @keyframes pulsar{
+    0%, 100%{ opacity: 1; }
+    50%{ opacity: 0.45; }
+  }
+
+  /* ===== Dobra 1 — Hero ===== */
+  .hero{
+    background-color: var(--creme);
+    /* textura sutil de papel via CSS, sem imagem externa */
+    background-image:
+      radial-gradient(rgba(140, 63, 34, 0.05) 1px, transparent 1px),
+      radial-gradient(rgba(46, 70, 35, 0.05) 1px, transparent 1px);
+    background-size: 34px 34px, 52px 52px;
+    background-position: 0 0, 17px 26px;
+    padding: 48px 0 56px;
+  }
+  .hero .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .hero-imagem img{
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(58, 46, 30, 0.25);
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero h1{
+    font-size: 32px;
+    color: var(--marrom);
+    line-height: 1.2;
+  }
+  .hero .subtitulo{
+    font-size: 20px;
+    color: var(--texto-suave);
+    margin-top: 18px;
+  }
+  .hero-checklist{
+    list-style: none;
+    padding: 0;
+    margin: 26px 0 0;
+  }
+  .hero-checklist li{
+    font-size: 16px;
+    color: var(--texto);
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+  }
+  .hero-checklist li::before{
+    content: "✓";
+    color: var(--marrom);
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .hero-confianca{
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-top: 16px;
+  }
+
+  .bloco-preco{ margin: 28px 0; }
+  .preco-riscado{
+    color: #8a8a8a;
+    font-size: 17px;
+    text-decoration: line-through;
+    display: block;
+  }
+  .preco-atual{
+    color: var(--marrom);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 40px;
+    display: block;
+    margin: 4px 0;
+  }
+  .preco-parcela{ font-size: 16px; color: var(--texto-suave); display: block; }
+  .preco-nota{ font-size: 14px; color: var(--texto-suave); display: block; margin-top: 2px; }
+
+  /* ===== Dobra 2 — VSL ===== */
+  .vsl{
+    background: var(--branco);
+    border-top: 3px solid var(--dourado);
+    border-bottom: 3px solid var(--dourado);
+    padding: 56px 0;
+    text-align: center;
+  }
+  .vsl h2{
+    color: var(--marrom);
+    font-size: 28px;
+    margin: 14px 0 32px;
+  }
+  .video-wrapper{
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .video-custom{
+    position: relative;
+    line-height: 0;
+  }
+  .video-custom video{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--dourado);
+    box-shadow: 0 16px 40px rgba(58, 46, 30, 0.2);
+  }
+  /* Controles próprios: só play/pausar e tela cheia, sem barra de progresso */
+  .video-play-overlay{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(78, 46, 27, 0.85);
+    color: var(--branco);
+    border: 3px solid var(--dourado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  .video-play-overlay svg{ margin-left: 4px; }
+  .video-play-overlay.escondido{ display: none; }
+  .video-controles{
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .video-btn{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(20, 12, 7, 0.65);
+    color: var(--branco);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .vsl .btn-cta{ margin-top: 32px; }
+
+  /* ===== Dobra 4 — Categorias (15 capítulos) ===== */
+  .categorias{ background: var(--creme); padding: 56px 0; }
+  .categorias .cabecalho{ text-align: center; max-width: 720px; margin: 0 auto 40px; }
+  .categorias h2{ color: var(--marrom); font-size: 28px; margin: 14px 0 12px; }
+  .categorias .subtitulo{ font-size: 18px; color: var(--texto-suave); }
+
+  .grid-categorias{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-categoria{
+    background: var(--branco);
+    border-radius: 10px;
+    border-top: 4px solid var(--terracota);
+    box-shadow: 0 6px 16px rgba(58, 46, 30, 0.08);
+    padding: 24px;
+  }
+  .icone-categoria{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--pilula-bg);
+    border: 2px solid var(--dourado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .card-categoria .numero{
+    color: var(--dourado);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 22px;
+  }
+  .card-categoria h3{
+    color: var(--marrom);
+    font-weight: 900;
+    font-size: 18px;
+    margin: 6px 0 8px;
+  }
+  .card-categoria p{
+    color: var(--texto-suave);
+    font-size: 16px;
+    margin: 0 0 14px;
+  }
+  .tags{ display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span{
+    background: var(--pilula-bg);
+    border: 1px solid rgba(140, 63, 34, 0.25);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: var(--texto);
+    white-space: nowrap;
+  }
+
+  /* ===== Dobra 3 — Sobre o produto (O material) ===== */
+  .sobre{
+    background: var(--marrom);
+    color: var(--branco);
+    padding: 56px 0;
+  }
+  .sobre .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .sobre-imagem img{
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  .sobre h2{ color: var(--branco); font-size: 26px; margin: 14px 0 22px; }
+  .lista-bullets{ list-style: none; padding: 0; margin: 0 0 28px; }
+  .lista-bullets li{
+    font-size: 17px;
+    margin-bottom: 16px;
+    padding-left: 30px;
+    position: relative;
+  }
+  .lista-bullets li::before{
+    content: "✓";
+    color: var(--dourado);
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .destaque-preco{
+    display: inline-block;
+    border: 2px solid var(--dourado);
+    background: rgba(192, 138, 62, 0.12);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 26px;
+    font-weight: 700;
+    color: var(--dourado);
+    line-height: 1.5;
+  }
+
+  /* ===== Dobra 5 — Garantia + CTA final ===== */
+  .comprar{ background: var(--creme); padding: 56px 0; }
+  .comprar .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .garantia h2{ color: var(--marrom); font-size: 26px; margin-bottom: 14px; }
+  .garantia p{ font-size: 17px; color: var(--texto); }
+
+  .bloco-urgencia{
+    background: rgba(140, 63, 34, 0.08);
+    border: 1px solid rgba(140, 63, 34, 0.35);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 24px;
+  }
+  .bloco-urgencia p{ margin: 0 0 10px; font-weight: 700; color: var(--terracota); }
+  .timer-secundario{
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--alerta);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .compra-final{ text-align: center; }
+  .compra-final img{
+    border-radius: 12px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 24px;
+    box-shadow: 0 16px 40px rgba(58, 46, 30, 0.2);
+  }
+  .compra-final .bloco-preco{ margin-bottom: 24px; }
+  .compra-final .preco-atual{ font-size: 40px; }
+  .compra-final .icones-seguranca{ justify-content: center; margin-top: 20px; }
+
+  /* ===== Dobra 6 — FAQ ===== */
+  .faq{ background: var(--branco); padding: 56px 0; }
+  .faq h2{ color: var(--marrom); font-size: 28px; text-align: center; margin-bottom: 36px; }
+  .faq-lista{ max-width: 760px; margin: 0 auto; }
+  .faq-item{ border-bottom: 1px solid rgba(192, 138, 62, 0.4); }
+  .faq-pergunta{
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 4px;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--marrom);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-pergunta::after{
+    content: "+";
+    font-size: 24px;
+    color: var(--dourado);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .faq-item.aberto .faq-pergunta::after{ transform: rotate(45deg); }
+  .faq-resposta{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 4px;
+  }
+  .faq-item.aberto .faq-resposta{ max-height: 320px; padding: 0 4px 20px; }
+  .faq-resposta p{ margin: 0; font-size: 16px; color: var(--texto-suave); }
+
+  /* ===== Rodapé ===== */
+  footer{
+    background: var(--marrom);
+    color: var(--branco);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  footer a{ color: var(--dourado); text-decoration: underline; }
+
+  /* ===== Modal de tempo esgotado ===== */
+  .modal-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(58, 46, 30, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.aberto{ display: flex; }
+  .modal-caixa{
+    background: var(--branco);
+    border-radius: 12px;
+    border-top: 6px solid var(--terracota);
+    max-width: 440px;
+    width: 100%;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .modal-foto{
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 16px;
+    border: 3px solid var(--dourado);
+  }
+  .modal-caixa h3{
+    font-family: 'Playfair Display', serif;
+    color: var(--marrom);
+    font-size: 22px;
+    margin: 0 0 14px;
+  }
+  .modal-caixa p{ font-size: 16px; color: var(--texto); margin: 0 0 24px; }
+  .modal-fechar{
+    background: none;
+    border: none;
+    color: var(--texto-suave);
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 14px;
+  }
+
+  /* ===== Responsividade — a partir de 768px ===== */
+  @media (min-width: 768px){
+    body{ font-size: 17px; }
+
+    .topbar{ font-size: 15px; }
+
+    .hero .container{ grid-template-columns: 1fr 1fr; }
+    .hero-imagem{ order: 2; }
+    .hero-imagem img{ max-width: 480px; }
+    .hero-texto{ order: 1; }
+    .hero h1{ font-size: 48px; }
+
+    .vsl h2, .categorias h2, .faq h2{ font-size: 36px; }
+
+    .grid-categorias{ grid-template-columns: repeat(3, 1fr); }
+
+    .sobre .container{ grid-template-columns: 1fr 1fr; }
+    .sobre h2{ font-size: 32px; }
+
+    .comprar .container{ grid-template-columns: 1fr 1fr; }
+
+    .btn-cta--bloco{ width: auto; }
+  }
+
+  @media (max-width: 767px){
+    /* botões sempre 100% de largura no mobile */
+    .btn-cta{ width: 100%; }
+    .icones-seguranca{ justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Barra de topo fixa ===== -->
+  <div class="topbar">
+    <span><span class="topbar-icone">⚠️</span> ÚLTIMOS MINUTOS: De R$ 65,90 por apenas <strong>R$ 35,90</strong></span>
+    <span class="topbar-timer" data-countdown>30:00</span>
+  </div>
+
+  <!-- ===== Dobra 1 — Hero ===== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-imagem">
+        <img src="3.png" alt="Bruto da Roça segurando o material 150 Receitas Naturais da Roça">
+      </div>
+      <div class="hero-texto">
+        <span class="kicker">A Farmácia Natural do Interior</span>
+        <hr class="linha-dourada">
+        <h1>150 Receitas Naturais da Roça que o Interior Sempre Soube Fazer</h1>
+        <p class="subtitulo">Pra aliviar dor, sono ruim, digestão pesada e outros probleminhas do dia a dia, sem sair de casa e sem depender de remédio caro pra tudo.</p>
+
+        <ul class="hero-checklist">
+          <li>Ache a receita certa pro seu problema em segundos</li>
+          <li>Ingredientes simples, fáceis de achar em feira ou mercado</li>
+          <li>Preparo rápido, explicado em letra grande</li>
+          <li>Um pagamento único, sem mensalidade nenhuma</li>
+          <li>Acesso imediato</li>
+        </ul>
+
+        <div class="bloco-preco">
+          <span class="preco-riscado">De R$ 65,90</span>
+          <span class="preco-atual">R$ 35,90</span>
+          <span class="preco-parcela">ou 12x de R$ 3,29</span>
+          <span class="preco-nota">Pagamento único. Sem mensalidade.</span>
+        </div>
+
+        <a href="#comprar" class="btn-cta btn-cta--primario">QUERO ALIVIAR ISSO AGORA →</a>
+
+        <p class="hero-confianca">Compra segura &bull; Acesso digital imediato &bull; 7 dias de garantia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dobra 2 — VSL ===== -->
+  <section class="vsl" id="vsl">
+    <div class="container">
+      <span class="kicker">Conheça o material por dentro</span>
+      <h2>Veja como as receitas foram organizadas para facilitar sua rotina</h2>
+      <div class="video-wrapper">
+        <div class="video-custom" id="video-custom">
+          <video id="vsl-video" poster="1.png" preload="metadata" playsinline disablePictureInPicture>
+            <source src="vsl-video.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução deste vídeo.
+          </video>
+          <button class="video-play-overlay" id="video-play-overlay" aria-label="Reproduzir vídeo" type="button">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="video-controles">
+            <button class="video-btn" id="video-btn-play" aria-label="Play/Pausar" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="video-btn" id="video-btn-fullscreen" aria-label="Tela cheia" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 9h2V7h3V5H5v4zm2 6H5v4h5v-2H7v-2zm10 2h-3v2h5v-4h-2v2zM14 5v2h3v2h2V5h-5z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <a href="#comprar" class="btn-cta btn-cta--primario">✅ QUERO RECEBER AGORA POR R$ 35,90</a>
+      <p class="hero-confianca">🔒 Compra segura &bull; 📱 Acesso imediato &bull; 🛡️ 7 dias de garantia</p>
+    </div>
+  </section>
+
+  <!-- ===== Dobra 3 — O material (Sobre o produto) ===== -->
+  <section class="sobre">
+    <div class="container">
+      <div class="sobre-imagem">
+        <img src="2.png" alt="Bruto da Roça com o material impresso sobre a mesa">
+      </div>
+      <div class="sobre-texto">
+        <span class="kicker">O material</span>
+        <h2>150 receitas tradicionais do interior, organizadas do jeito que o campo sempre soube fazer</h2>
+
+        <ul class="lista-bullets">
+          <li>150 receitas separadas em 15 finalidades diferentes</li>
+          <li>Ingredientes simples, encontrados em feira ou quintal</li>
+          <li>Modo de preparo curto e direto, fácil de seguir</li>
+          <li>Dica especial do Bruto em cada receita</li>
+          <li>Material digital, acesso imediato por e-mail</li>
+          <li>Funciona no celular, tablet ou computador</li>
+          <li>Pagamento único, sem mensalidade, sem assinatura</li>
+          <li>7 dias de garantia, ou seu dinheiro de volta</li>
+        </ul>
+
+        <div class="destaque-preco">
+          São 150 receitas por apenas R$ 35,90<br>
+          Menos de R$ 0,24 por receita
+        </div>
+        <br>
+        <a href="#comprar" class="btn-cta btn-cta--claro">✅ QUERO MEU ACESSO AGORA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dobra 4 — O que você vai encontrar (15 capítulos) ===== -->
+  <section class="categorias" id="categorias">
+    <div class="container">
+      <div class="cabecalho">
+        <span class="kicker">150 receitas organizadas por finalidade</span>
+        <h2>Encontre o que precisa na hora que precisar</h2>
+        <p class="subtitulo">Sem ficar procurando em vídeo nenhum. Só escolher o capítulo e seguir o preparo.</p>
+      </div>
+
+      <div class="grid-categorias">
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🍃</div>
+          <span class="numero">01</span>
+          <h3>Digestão e leveza</h3>
+          <p>Receitas para aliviar o desconforto depois das refeições e sentir mais leveza no dia a dia.</p>
+          <div class="tags"><span>Desincha</span><span>Melhora o trânsito</span><span>Mais leveza</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🌙</div>
+          <span class="numero">02</span>
+          <h3>Sono e relaxamento</h3>
+          <p>Chás e banhos que ajudam a acalmar a mente e ter uma noite de sono tranquila.</p>
+          <div class="tags"><span>Relaxamento</span><span>Sono profundo</span><span>Menos ansiedade</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🦵</div>
+          <span class="numero">03</span>
+          <h3>Articulações e joelhos</h3>
+          <p>Preparos caseiros para aliviar dores e ganhar mais mobilidade nas juntas.</p>
+          <div class="tags"><span>Anti-inflamatório</span><span>Cartilagens</span><span>Mobilidade</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🍋</div>
+          <span class="numero">04</span>
+          <h3>Cuidados com o fígado</h3>
+          <p>Receitas que ajudam o corpo a se limpar naturalmente e recuperar energia.</p>
+          <div class="tags"><span>Desintoxicação</span><span>Fígado saudável</span><span>Mais energia</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🫘</div>
+          <span class="numero">05</span>
+          <h3>Bem-estar dos rins</h3>
+          <p>Chás e cuidados simples para manter os rins saudáveis e equilibrados.</p>
+          <div class="tags"><span>Rins saudáveis</span><span>Equilíbrio</span><span>Prevenção</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">💧</div>
+          <span class="numero">06</span>
+          <h3>Retenção de líquidos</h3>
+          <p>Receitas que ajudam a desinchar e sentir o corpo mais leve todos os dias.</p>
+          <div class="tags"><span>Drena líquidos</span><span>Desincha</span><span>Mais leveza</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">❤️</div>
+          <span class="numero">07</span>
+          <h3>Circulação</h3>
+          <p>Preparos que favorecem a circulação e trazem mais disposição para o dia.</p>
+          <div class="tags"><span>Coração saudável</span><span>Circulação</span><span>Mais disposição</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🩺</div>
+          <span class="numero">08</span>
+          <h3>Hábitos e pressão</h3>
+          <p>Cuidados simples do dia a dia para manter a pressão sob controle.</p>
+          <div class="tags"><span>Pressão equilibrada</span><span>Hábitos saudáveis</span><span>Coração</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🍯</div>
+          <span class="numero">09</span>
+          <h3>Açúcar e equilíbrio alimentar</h3>
+          <p>Receitas que ajudam a equilibrar o açúcar no sangue com hábitos naturais.</p>
+          <div class="tags"><span>Equilíbrio</span><span>Menos açúcar</span><span>Saúde</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">💇</div>
+          <span class="numero">10</span>
+          <h3>Cabelos</h3>
+          <p>Receitas caseiras para fortalecer, dar brilho e estimular o crescimento dos cabelos.</p>
+          <div class="tags"><span>Força</span><span>Brilho</span><span>Crescimento</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🛡️</div>
+          <span class="numero">11</span>
+          <h3>Imunidade</h3>
+          <p>Preparos que reforçam as defesas do corpo contra gripes e resfriados.</p>
+          <div class="tags"><span>Defesas</span><span>Proteção</span><span>Resistência</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">⚡</div>
+          <span class="numero">12</span>
+          <h3>Disposição</h3>
+          <p>Receitas para ganhar energia e enfrentar o dia com mais vitalidade.</p>
+          <div class="tags"><span>Energia</span><span>Vitalidade</span><span>Bem-estar</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🫁</div>
+          <span class="numero">13</span>
+          <h3>Garganta e vias respiratórias</h3>
+          <p>Chás e xaropes caseiros para aliviar o desconforto na garganta.</p>
+          <div class="tags"><span>Alívio</span><span>Respiração</span><span>Conforto</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🌸</div>
+          <span class="numero">14</span>
+          <h3>Pele</h3>
+          <p>Receitas naturais para cuidar e hidratar a pele com ingredientes simples.</p>
+          <div class="tags"><span>Pele saudável</span><span>Beleza</span><span>Hidratação</span></div>
+        </div>
+
+        <div class="card-categoria">
+          <div class="icone-categoria">🌼</div>
+          <span class="numero">15</span>
+          <h3>Bem-estar geral</h3>
+          <p>Receitas que cuidam do equilíbrio e da qualidade de vida como um todo.</p>
+          <div class="tags"><span>Equilíbrio</span><span>Saúde integral</span><span>Qualidade de vida</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dobra 5 — Garantia + CTA final ===== -->
+  <section class="comprar" id="comprar">
+    <div class="container">
+      <div class="garantia">
+        <h2>Eu não vi nada disso escrito em livro nenhum, até agora</h2>
+        <p>Aprendi vendo minha mãe ferver folha de boldo depois do almoço de domingo, vendo meu pai amassar erva no pano pra fazer compressa no joelho depois de um dia de enxada, vendo o vizinho velho apontar no quintal qual mato servia pra quê. Era tudo passado de boca em boca, de geração em geração, até eu resolver reunir essas 150 receitas aqui, separadas por finalidade, do jeito que a roça sempre fez: direto, sem frescura, com respeito por quem veio antes.</p>
+
+        <div class="bloco-urgencia">
+          <p>⏰ ATENÇÃO: Esta condição especial é válida somente nesta visita.<br>De R$ 65,90 por R$ 35,90.</p>
+          <span class="timer-secundario" data-countdown>30:00</span>
+        </div>
+      </div>
+
+      <div class="compra-final">
+        <img src="Livro.png" alt="Material 150 Receitas Naturais da Roça">
+
+        <div class="bloco-preco">
+          <span class="preco-riscado">R$ 65,90</span>
+          <span class="preco-atual">R$ 35,90</span>
+          <span class="preco-parcela">ou 12x de R$ 3,29</span>
+        </div>
+
+        <a href="#link-de-compra" class="btn-cta btn-cta--primario btn-cta--bloco">✅ QUERO RECEBER AGORA</a>
+
+        <div class="icones-seguranca">
+          <span>🔒 SSL Seguro</span>
+          <span>💳 Pagamento seguro</span>
+          <span>📱 Acesso imediato</span>
+          <span>🛡️ Garantia 7 dias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dobra 6 — FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2>Perguntas Frequentes</h2>
+
+      <div class="faq-lista">
+
+        <div class="faq-item">
+          <button class="faq-pergunta">Como vou receber o material?</button>
+          <div class="faq-resposta">
+            <p>Assim que o pagamento for confirmado você recebe um e-mail com o link de acesso. É só clicar e abrir no celular, tablet ou computador. Não precisa instalar nada.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">Precisa de internet para acessar?</button>
+          <div class="faq-resposta">
+            <p>Para acessar pela primeira vez sim. Mas você pode salvar o PDF no seu celular ou computador e consultar quando quiser, mesmo sem internet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">Funciona no meu celular?</button>
+          <div class="faq-resposta">
+            <p>Sim. O material foi feito pra ser lido no celular, com letra grande e fácil de navegar. Funciona em qualquer smartphone, tablet ou computador.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">E se eu não gostar?</button>
+          <div class="faq-resposta">
+            <p>Você tem 7 dias de garantia completa. Se por qualquer motivo não ficar satisfeito, é só me avisar dentro desse prazo que eu devolvo o valor inteiro. Sem pergunta, sem enrolação.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">As receitas substituem o médico?</button>
+          <div class="faq-resposta">
+            <p>Não. As receitas reunidas aqui são de caráter tradicional e informativo. Elas não substituem diagnóstico, tratamento ou acompanhamento médico. Em caso de dúvida, consulte sempre um profissional de saúde.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Rodapé ===== -->
+  <footer>
+    © 2025 A Farmácia Natural do Interior, Bruto da Roça<br>
+    Este material tem finalidade educativa e informativa. Não substitui diagnóstico ou tratamento médico.<br>
+    <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+  </footer>
+
+  <!-- ===== Modal de tempo esgotado ===== -->
+  <div class="modal-overlay" id="modal-tempo-esgotado">
+    <div class="modal-caixa">
+      <img src="1.png" alt="Bruto da Roça" class="modal-foto">
+      <h3>Ainda dá tempo!</h3>
+      <p>O tempo desta oferta especial encerrou, mas como você ainda está por aqui, vamos manter esse valor promocional por mais alguns minutos. Aproveite agora!</p>
+      <a href="#comprar" class="btn-cta btn-cta--primario btn-cta--bloco" id="modal-cta">✅ QUERO RECEBER AGORA</a>
+      <button class="modal-fechar" id="modal-fechar">Fechar</button>
+    </div>
+  </div>
+
+<script>
+  // ===== Temporizador regressivo (topo + dobra 5), sincronizado via localStorage =====
+  (function(){
+    var DURACAO_MS = 30 * 60 * 1000; // 30 minutos
+    var CHAVE_FIM = 'brutoDaRoca_promoFim';
+    var CHAVE_MODAL = 'brutoDaRoca_modalExibido';
+
+    var agora = Date.now();
+    var fim = parseInt(localStorage.getItem(CHAVE_FIM), 10);
+
+    // se não existe contagem salva, ou ela já passou, inicia uma nova de 30:00
+    if (!fim || isNaN(fim) || fim <= agora) {
+      fim = agora + DURACAO_MS;
+      localStorage.setItem(CHAVE_FIM, String(fim));
+      localStorage.removeItem(CHAVE_MODAL);
+    }
+
+    var displaysTimer = document.querySelectorAll('[data-countdown]');
+    var modal = document.getElementById('modal-tempo-esgotado');
+    var modalJaExibido = localStorage.getItem(CHAVE_MODAL) === '1';
+
+    function formatarTempo(ms) {
+      var totalSegundos = Math.max(0, Math.floor(ms / 1000));
+      var minutos = String(Math.floor(totalSegundos / 60)).padStart(2, '0');
+      var segundos = String(totalSegundos % 60).padStart(2, '0');
+      return minutos + ':' + segundos;
+    }
+
+    function atualizar() {
+      var restante = fim - Date.now();
+      var texto = formatarTempo(restante);
+      displaysTimer.forEach(function (el) { el.textContent = texto; });
+
+      if (restante <= 0) {
+        clearInterval(intervaloId);
+        if (!modalJaExibido) {
+          modal.classList.add('aberto');
+          modalJaExibido = true;
+          localStorage.setItem(CHAVE_MODAL, '1');
+        }
+      }
+    }
+
+    atualizar();
+    var intervaloId = setInterval(atualizar, 1000);
+
+    document.getElementById('modal-cta').addEventListener('click', function () {
+      modal.classList.remove('aberto');
+    });
+    document.getElementById('modal-fechar').addEventListener('click', function () {
+      modal.classList.remove('aberto');
+    });
+  })();
+
+  // ===== Player customizado do VSL: só play/pausar e tela cheia =====
+  (function(){
+    var video = document.getElementById('vsl-video');
+    var overlay = document.getElementById('video-play-overlay');
+    var btnPlay = document.getElementById('video-btn-play');
+    var btnFullscreen = document.getElementById('video-btn-fullscreen');
+    var container = document.getElementById('video-custom');
+
+    var iconePlay = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    var iconePausa = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+
+    function alternarPlay() {
+      if (video.paused) { video.play(); } else { video.pause(); }
+    }
+
+    overlay.addEventListener('click', alternarPlay);
+    video.addEventListener('click', alternarPlay);
+    btnPlay.addEventListener('click', alternarPlay);
+
+    video.addEventListener('play', function () {
+      overlay.classList.add('escondido');
+      btnPlay.innerHTML = iconePausa;
+    });
+    video.addEventListener('pause', function () {
+      overlay.classList.remove('escondido');
+      btnPlay.innerHTML = iconePlay;
+    });
+    video.addEventListener('ended', function () {
+      overlay.classList.remove('escondido');
+      btnPlay.innerHTML = iconePlay;
+    });
+
+    btnFullscreen.addEventListener('click', function () {
+      if (video.requestFullscreen) { video.requestFullscreen(); }
+      else if (video.webkitRequestFullscreen) { video.webkitRequestFullscreen(); }
+      else if (video.webkitEnterFullscreen) { video.webkitEnterFullscreen(); }
+    });
+  })();
+
+  // ===== Accordion do FAQ — só uma resposta aberta por vez =====
+  document.querySelectorAll('.faq-pergunta').forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      var item = botao.closest('.faq-item');
+      var estavaAberto = item.classList.contains('aberto');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('aberto'); });
+      if (!estavaAberto) { item.classList.add('aberto'); }
+    });
+  });
+
+  // ===== Scroll suave dos CTAs até a dobra de compra =====
+  document.querySelectorAll('a[href="#comprar"]').forEach(function (link) {
+    link.addEventListener('click', function (evento) {
+      evento.preventDefault();
+      document.getElementById('comprar').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
